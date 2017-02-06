@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-hot-loader": "registry:dt/react-hot-loader#3.0.0+20170123203653"
+  }
+}
