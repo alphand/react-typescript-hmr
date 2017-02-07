@@ -3,18 +3,13 @@
 import { AppContainer } from "react-hot-loader";
 
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { render } from "react-dom";
 
-import { App } from "./app";
-
-interface IHotModule {
-  hot?: { accept: (path: string, callback: () => void ) => void };
-}
-declare const module:IHotModule;
+import { App } from "./App";
 
 const rootEl = document.getElementById("root");
-const render = (Component:any) => {
-  ReactDOM.render(
+const renderApp = (Component:any) => {
+  render(
     <AppContainer>
       <Component />
     </AppContainer>
@@ -22,5 +17,14 @@ const render = (Component:any) => {
   )
 }
 
-render(App);
-if(module.hot) module.hot.accept('./app', () => render(App));
+renderApp(App);
+
+interface IHotModule {
+  hot?: { accept: (path: string, callback: () => void ) => void };
+}
+declare let module:IHotModule;
+
+if(module.hot) module.hot.accept('./App', () => {
+  const NewApp = require('./App').App;
+  return renderApp(NewApp)
+});

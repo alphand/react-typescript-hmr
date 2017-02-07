@@ -1,7 +1,12 @@
 import * as React from 'react'
+import { Layout } from './components/Layout';
+import { Hello } from './components/Hello';
 
 export class App extends React.Component<null, null> {
   render() {
-    return <h1> Hello from APP</h1>;
+    return <Layout>
+        <Hello compiler="Typescript" framework="REACT" />
+        <p>Testing children</p>
+      </Layout>
   }
 }

@@ -6,31 +6,32 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/index.tsx',
+    './src/index',
   ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/static'
+    publicPath: '/static/'
   },
-  devtool: 'inline-source-map',
+  devtool: 'eval-cheap-module-source-map',
   module: {
     rules:[
       {
         test: /\.tsx?$/,
         use: [
-          'react-hot-loader/webpack',
-          'babel-loader',
           'awesome-typescript-loader'
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        include: [
+          path.join(__dirname, '..', 'src')
+        ]
       },
       {
         test: /\.js$/,
         use: [
           'source-map-loader'
         ],
-        enforce: 'pre',
+        enforce: 'pre'
       }
     ]
   },
@@ -40,7 +41,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'], 
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx']
   },
   devServer: {
     host: 'localhost',

@@ -4,31 +4,27 @@
   "description": "React with TS",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js",
+    "start": "node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "darmawan.niko@gmail.com",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^7.0.5",
+    "@types/react": "^15.0.6",
+    "@types/react-dom": "^0.14.22",
     "awesome-typescript-loader": "^3.0.3",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
     "react-hot-loader": "^3.0.0-beta.6",
     "source-map-loader": "^0.1.6",
     "typescript": "^2.1.5",
     "typings": "^2.1.0",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-dev-server": "^2.3.0",
+    "webpack-hot-middleware": "^2.16.1"
   },
   "dependencies": {
-    "@types/react": "^15.0.6",
-    "@types/react-dom": "^0.14.22",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
-  },
-  "typescript": {
-    "definitions": [
-      "typings/react-hot-loader.d.ts"
-    ]
   }
 }
